@@ -1,8 +1,14 @@
 import React from 'react'
-import Jumbotron from './jumbotron'
+import { JumbotronContainer } from './containers/jumbotron'
+import { FooterContainer } from './containers/footer'
+import { FaqsContainer } from './containers/faqs'
 
-export default () => {
+export default function App () {
   return (
-    <div>App</div>
+    <>
+      <JumbotronContainer/>
+      <FaqsContainer/>
+      <FooterContainer/>
+    </>
   )
 }

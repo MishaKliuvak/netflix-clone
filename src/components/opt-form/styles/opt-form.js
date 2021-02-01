@@ -13,6 +13,7 @@ export const Container = styled.div`
   }
 `
 
+
 export const Input = styled.input`
   max-width: 450px;
   width: 100%;
@@ -30,7 +31,7 @@ export const Button = styled.button`
   color: white;
   text-transform: uppercase;
   padding: 0 32px;
-  font-size: 26px;
+  font-size: 20px;
   border: none;
   cursor: pointer;
   transition: background .1s;

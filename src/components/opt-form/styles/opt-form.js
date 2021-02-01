@@ -13,6 +13,10 @@ export const Container = styled.div`
   }
 `
 
+export const Break = styled.div`
+  flex-basis: 100%;
+  height: 0;
+`
 
 export const Input = styled.input`
   max-width: 450px;
@@ -61,6 +65,7 @@ export const Text = styled.p`
   font-size: 19.2px;
   color: white;
   text-align: center;
+  display: block;
   
   @media(max-width: 600px) {
     font-size: 16px;

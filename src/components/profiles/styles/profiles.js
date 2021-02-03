@@ -33,8 +33,8 @@ export const Name = styled.p`
   transition: all .3s;
   
   &:hover {
-    font-weight: bold;
     color: #e5e5e5;
+    cursor: pointer;
   }
 `
 
@@ -58,7 +58,6 @@ export const Item = styled.li`
   }
   
   &:hover ${Name} {
-    font-weight: bold;
     color: white;
   }
   

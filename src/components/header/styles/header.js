@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
+import { act } from '@testing-library/react'
 
 export const Container = styled.div`
   display: flex;
@@ -86,16 +87,19 @@ export const FeatureCallOut = styled.h2`
   line-height: normal;
   text-shadow: 2px 2px 4px rgba(0,0,0,.45);
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 `
 export const TextLink = styled.p`
-  color: white;
+  color: ${({active}) => active ? 'white' : '#e5e5e5'};
   margin-right: 30px;
   cursor: pointer;
+    transition: all .3s;
   font-weight: ${({active}) => active === true ? '700' : 'normal'};
   
   &:hover {
-    text-decoration: underline;
+    ${({active, menu}) => (!active && menu) && `color: #b3b3b3;` };
+    ${({menu}) => !menu && 'text-decoration: underline;'};
+    ${({active}) => active && 'cursor: default;'};
   }
   &:last-of-type {
     margin-right: 0;
@@ -215,16 +219,25 @@ export const PlayButton = styled.button`
   box-shadow: 0 .6vw 1vw -.4vw rgba(0,0,0,.35);
     background-color: #e6e6e6;
     color: black;
-    font-weight: bold;
+    font-weight: 500;
     border-width: 0;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 1rem 1.7rem;
+    border-radius: 4px;
     max-width: 130px;
-    font-size: 16px;
+    font-size: 1.5rem;
     letter-spacing: normal;
+    display: flex;
+    align-items: center;
     margin-top: 30px;
     cursor: pointer;
     transition: background-color .5s ease;
+    
+    svg {
+        margin-right: 10px;
+        fill: black;
+        width: 35px;
+        height: 35px;
+    }
     
     &:hover {
         background-color: #ff1e1e;

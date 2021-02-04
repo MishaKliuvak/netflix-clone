@@ -72,7 +72,12 @@ Header.Picture = function HeaderPicture({ src, ...restProps }) {
 }
 
 Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
-  return <PlayButton {...restProps}>{children}</PlayButton>
+  return(
+    <PlayButton {...restProps}>
+      <svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z" fill="black"></path></svg>
+      {children}
+    </PlayButton>
+  )
 }
 
 Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps }) {

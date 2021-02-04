@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 
 export const Title = styled.p`
-  font-size: 24px;
+  font-size: 1.4vw;
   color: #e5e5e5;
   font-weight: bold;
   margin-left: 56px;
@@ -21,47 +21,38 @@ export const Container = styled.div`
     }
   } 
   
-  &:last-of-type {
-    margin-bottom: 0;
-  }
 `
 
 
 export const Group = styled.div`
   display: flex;
   flex-direction: ${({ flexDirection }) => flexDirection === 'row' ? 'row' : 'column'};
-  ${({ alignItems }) => alignItems && `align-items: ${alignItems}`}
-  ${({ margin }) => margin && `margin: ${margin}`}
-  
-  > ${Container}:first-of-type {
-    @media(min-width: 1100px) {
-      margin-top: -150px;
-    }
-  }
+  ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
+  ${({ margin }) => margin && `margin: ${margin}`};
 `
 
 export const SubTitle = styled.p`
-  font-size: 12px;
+  font-size: 16px;
   color: #fff;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 0;
   user-select: none;
-  display: none;
 `
 
 export const Text = styled.p`
   margin-top: 5px;
-  font-size: 10px;
+  font-size: 14px;
   color: white;
   margin-bottom: 0;
   user-select: none;
-  display: none;
   line-height: normal;
 `
 
 export const FeatureText = styled.p`
-  margin-left: 0;
+  font-size: 18px;
+  color: white;
+  font-weight: ${({fontWeight}) => fontWeight === 'bold' ? 'bold' : 'normal'};
 `
 
 export const Feature = styled.div`
@@ -138,34 +129,65 @@ export const Content = styled.div`
 `
 
 export const Meta = styled.div`
-  display: none;
+  display: block;
+  visibility: hidden;
   position: absolute;
   bottom: 0;
-  padding: 10px;
-  background-color: #0000008f;
+  opacity: 0;
+  padding: 20px;
+  background-image: linear-gradient(to bottom,  rgba(0,0,0,0) 0%, rgba(12,12,13,0.6) 30%, rgba(0,0,0,1) 100%);
+  transition: visibility 0.3s linear,opacity 0.3s linear;
 `
 
 export const Entities = styled.div`
   display: flex;
   flex-direction: row;
+  gap: 5px;
+`
+
+
+
+export const Image = styled.img`
+  border: 0;
+  width: 100%;
+  max-width: 305px;
+  cursor: pointer;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  border-radius: 4px;
+  vertical-align: center;
 `
 
 export const Item = styled.div`
   display: flex;
   flex-direction: column;
-  margin-right: 5px;
   position: relative;
   cursor: pointer;
-  transition: transform .3s;
+  transition: transform .4s, z-index .2s;
+  z-index: 98;
+  backface-visibility: hidden;
+  vertical-align: top;
+
+  transform-origin: center;
   
-  &:hover {
-    transform: scale(1.3);
-    z-index: 99;
+  &:first-of-type {
+    transform-origin: left;
   }
   
+  &:last-of-type {
+    transform-origin: right;
+  }
+  
+  &:hover {
+    transform: scale(1.4);
+    z-index: 99;
+  }
+ 
   @media(min-width: 1100px) {
-    &:hover ${Meta}, &:hover ${Text}, &:hover ${SubTitle} {
-      display: block;
+    &:hover ${Meta} {
+      visibility: visible;
+      opacity: 1;
       z-index: 100;
     }
   }
@@ -187,15 +209,4 @@ export const Item = styled.div`
   }
   
 `
-
-export const Image = styled.img`
-  border: 0;
-  width: 100%;
-  max-width: 305px;
-  cursor: pointer;
-  height: auto;
-  padding: 0;
-  margin: 0;
-`
-
 

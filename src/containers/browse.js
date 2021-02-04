@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { SelectProfileContainer } from './profile'
 import { FirebaseContext } from '../context/firebase'
 import { Header, Loading, Card } from '../components'
+import { FooterContainer } from '../containers/footer'
 import * as ROUTES from '../constants/routes'
 import logo from '../logo.svg'
 
@@ -35,12 +36,14 @@ export function BrowseContainer({ slides }) {
             <Header.TextLink
               active={category === 'series'}
               onClick={() => setCategory('series')}
+              menu={true}
             >
               Series
             </Header.TextLink>
             <Header.TextLink
               active={category === 'films'}
               onClick={() => setCategory('films')}
+              menu={true}
             >
               Films
             </Header.TextLink>
@@ -98,6 +101,7 @@ export function BrowseContainer({ slides }) {
           </Card>
         ))}
       </Card.Group>
+      <FooterContainer />
     </>
   ) : (
     <SelectProfileContainer user={user} setProfile={setProfile}/>

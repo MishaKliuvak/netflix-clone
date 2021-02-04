@@ -65,16 +65,16 @@ Card.Feature = function CardMeta({ children, category, ...restProps }) {
         <FeatureClose onClick={() => setShowFeature(false)}>
           <img src="/images/icons/close.png" alt="Close"/>
         </FeatureClose>
-      </Content>
 
-      <Group margin="30px 0" flexDirection="row" alignItems="true">
-        <Maturity rating={itemFeature.maturity}>
-          {itemFeature.maturity < 12 ? 'PG' : itemFeature.maturity}
-        </Maturity>
-        <FeatureText fontWeight="bold">
-          {itemFeature.genre.charAt(0).toUpperCase() + itemFeature.genre.slice(1)}
-        </FeatureText>
-      </Group>
+        <Group margin="30px 0" flexDirection="row" alignItems="center">
+          <Maturity rating={itemFeature.maturity}>
+            {itemFeature.maturity < 12 ? 'PG' : itemFeature.maturity}
+          </Maturity>
+          <FeatureText fontWeight="bold">
+            {itemFeature.genre.charAt(0).toUpperCase() + itemFeature.genre.slice(1)}
+          </FeatureText>
+        </Group>
+      </Content>
     </Feature>
   ) : null
 }

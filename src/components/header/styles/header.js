@@ -22,7 +22,8 @@ export const Container = styled.div`
 export const Background = styled.div`
   display: flex;
   flex-direction: column;
-  background: url(${({ src }) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')}) top left / cover no-repeat;
+  background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,0) 30%, rgba(12,12,13,0.6) 50%, rgba(0,0,0,.8) 100%), 
+    url(${({ src }) => (src ? `../images/misc/${src}.jpg` : '../images/misc/home-bg.jpg')}) top left / cover no-repeat;
 
   @media(max-width: 1100px) {
     ${({dontShowOnSmallViewPort}) => dontShowOnSmallViewPort && 'background: none;'}
@@ -64,7 +65,7 @@ export const Feature = styled(Container)`
   padding: 150px 0 500px 0;
   flex-direction: column;
   align-items: normal;
-  width: 50%;
+  width: 36%;
   
   @media(max-width: 1100px) {
     display: none;
@@ -72,8 +73,8 @@ export const Feature = styled(Container)`
 `
 export const Text = styled.p`
   color: white;
-  font-size: 22px;
-  line-height: normal;
+  font-size: 1.4vw;
+  line-height: 140%;
   text-shadow: 2px 2px 4px rgba(0,0,0,.45);
   margin: 0;
 `
@@ -94,7 +95,7 @@ export const TextLink = styled.p`
   font-weight: ${({active}) => active === true ? '700' : 'normal'};
   
   &:hover {
-    font-weight: bold;
+    text-decoration: underline;
   }
   &:last-of-type {
     margin-right: 0;
@@ -113,18 +114,24 @@ export const Picture = styled.button`
     width: 32px;
     height: 32px;
     cursor: pointer;
+    border-radius: 4px;
 `
 export const Dropdown = styled.div`
-  display: none;
+    display: flex;
+    flex-direction: column;
     background-color: black;
+    transition: opacity 3s;
     position: absolute;
     padding: 10px;
+    transition: opacity .5s ease;
+    opacity: 0;
     width: 100px;
     top: 32px;
-    right: 10px;
+    right: 0;
     
     ${Group}:last-of-type ${TextLink} {
         cursor: pointer;
+        font-weight: bold;
     }
     ${Group} {
         margin-bottom: 10px;
@@ -160,16 +167,19 @@ export const Profile = styled.div`
     }
     
     &:hover > ${Dropdown} {
-        display: flex;
-        flex-direction: column;
+        opacity: 1;
     }
 `
 export const Search = styled.div`
     display: flex;
     align-items: center;
-    
-    svg {
+    position: relative;
+    img {
         color: white;
+        position: absolute;
+        top: 50%;
+        left: -10px;
+        transform: translateY(-50%);
         cursor: pointer;
     }
     
@@ -181,6 +191,7 @@ export const SearchIcon = styled.button`
     cursor: pointer;
     background-color: transparent;
     border: 0;
+    outline: none;
     
     img {
         filter: brightness(0) invert(1);
@@ -189,10 +200,10 @@ export const SearchIcon = styled.button`
 `
 
 export const SearchInput = styled.input`
-    background-color: #44444459;
+    background-color: rgba(0,0,0,.8);
     color: white;
     border: 1px solid white;
-    transition: width .5s;
+    transition: width .3s;
     height: 30px;
     font-size: 14px;
     margin-left: ${({active}) => active ? '10px' : '0'};
@@ -209,7 +220,8 @@ export const PlayButton = styled.button`
     padding: 10px 20px;
     border-radius: 5px;
     max-width: 130px;
-    font-size: 20px;
+    font-size: 16px;
+    letter-spacing: normal;
     margin-top: 30px;
     cursor: pointer;
     transition: background-color .5s ease;

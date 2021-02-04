@@ -40,11 +40,12 @@ export const Name = styled.p`
 
 export const Picture = styled.img`
   width: 100%;
-  max-width: 150px;
+  max-width: 130px;
   height: auto;
   border: 3px solid black;
   cursor: pointer;
   transition: border .3s;
+  border-radius: 7px;
 `
 
 export const Item = styled.li`

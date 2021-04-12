@@ -5,11 +5,14 @@ A Netflix clone was built using React (Custom Hooks, Context), Firebase and Styl
 <br /><br />
 <img alt="Main page" style="width: 50%" src="https://files.fm/thumb_show.php?i=6bj7hpgv7"/>
 <br />
+
 ## Auth Page
 <img alt="Main page" style="width: 50%" src="https://files.fm/thumb_show.php?i=ypaprurre"/>
-<br />
+
+
 ## Browse Page
 <img alt="Main page" style="width: 50%" src="https://files.fm/thumb_show.php?i=gawzhfxnj"/>
-<br />
+
+
 ## Homepage
 <img alt="Main page" style="width: 50%" src="https://files.fm/thumb_show.php?i=r5ppkv8jg"/>
